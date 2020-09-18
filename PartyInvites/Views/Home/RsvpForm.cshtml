@@ -1,0 +1,35 @@
+﻿
+@model PartyInvites.Models.GuestResponse
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>RSVP</title>
+</head>
+<body>
+    <form asp-action ="RsvpForm" method="post">
+        <p>
+            <label asp-for="Name">Name and Surname:</label>
+            <input asp-for-"Name"/>
+        </p>
+        <p>
+            <label asp-for="Email">E-mail address:</label>
+            <input asp-for="Email" />
+        </p>
+        <label asp-for="Phone">Phone number:</label>
+        <input asp-for="Phone" />
+        <p>
+            <label>Would you like to come?</label>
+            <select asp-for="WillAttend">
+                <option value="">Pick option</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </p>
+        <button type="submit">Send RSVP</button>
+    </form>
+</body>
+</html>
