@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace PartyInvites.Models
 {
-    public static class Repositorycs
+    public static class Repository
     {
-        private static List<Guestresponse> responses = new List<Guestresponse>();
+        private static List<GuestResponse> responses = new List<GuestResponse>();
         public static IEnumerable<GuestResponse> Responses
         {
             get

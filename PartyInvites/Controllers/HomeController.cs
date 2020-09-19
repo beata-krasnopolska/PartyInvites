@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PartyInvites.Models;
+using System.Linq;
+using System;
 
 namespace PartyInvites.Controllers
 {
@@ -7,7 +9,7 @@ namespace PartyInvites.Controllers
     {
         public ViewResult Index()
         {
-            int hour = DateTiime.Now.Hour;
+            int hour = DateTime.Now.Hour;
             ViewBag.Greeting = hour < 17 ? "Dzień dobry" : "Dobry wieczór";
             return View("MyView");
         }
@@ -21,8 +23,13 @@ namespace PartyInvites.Controllers
         [HttpPost]
         public ViewResult RsvpForm(GuestResponse guestResponse)
         {
-            Repositorycs.AddResponse(guestResponse);
+            Repository.AddResponse(guestResponse);
             return View("Thanks", guestResponse);
+        }
+
+        public ViewResult ListResponses()
+        {
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
         }
     }
 }
